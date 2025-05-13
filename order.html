@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orders</title>
+  <link rel="icon" href="JJK Logo.jpg" type="image/x-icon" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .menu-toggle {
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .logo {
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #333;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 3;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      padding: 12px 24px;
+      display: block;
+      color: white;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .orders-title {
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .category-title {
+      font-size: 22px;
+      margin: 30px 20px 10px;
+      color: #333;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 200px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .order-button {
+      background: #ff5252;
+      border: none;
+      color: white;
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="order.html">Orders</a>
+    <a href="addtocart.html">Add to Cart</a>
+    <a href="login.html">Log In</a>
+    <a href="signup.html">Sign Up</a>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <button class="menu-toggle" id="menuButton">&#9776;</button>
+    <img src="JJK Logo.jpg" alt="Logo" class="logo" />
+  </div>
+
+  <!-- Content -->
+  <h1 class="orders-title">Orders</h1>
+
+  <h2 class="category-title">Meals / Snacks</h2>
+  <section class="products">
+    <div class="product">
+      <img src="Carbonara.jpg" alt="Creamy Carbonara" />
+      <h3>Creamy Carbonara</h3>
+      <p>₱75</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Italian Burger.jpg" alt="Burger" />
+      <h3>Classic Burger</h3>
+      <p>₱120</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Cheesy Fries.jpg" alt="Cheesy Fries" />
+      <h3>Cheesy Fries</h3>
+      <p>₱85</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Chicken Adobo.jpg" alt="Chicken Adobo" />
+      <h3>Classic Chicken Adobo</h3>
+      <p>₱90</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Sinigang na Baboy.jpg" alt="Sinigang na Baboy" />
+      <h3>Sinigang na Baboy</h3>
+      <p>₱145</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+  </section>
+
+  <h2 class="category-title">Cakes</h2>
+  <section class="products">
+    <div class="product">
+      <img src="Moist Triple Chocolate Cake.jpg" alt="Moist Triple Chocolate Cake" />
+      <h3>Triple Chocolate Cake</h3>
+      <p>₱300</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Red Velvet Cake.jpg" alt="Red Velvet Cake" />
+      <h3>Red Velvet Cake</h3>
+      <p>₱400</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Mocha Cake.jpg" alt="Mocha Cake" />
+      <h3>Mocha Cake</h3>
+      <p>₱450</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Black Forest.jpg" alt="Black Forest" />
+      <h3>Black Forest</h3>
+      <p>₱550</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+  </section>
+
+  <h2 class="category-title">Drinks</h2>
+  <section class="products">
+    <div class="product">
+      <img src="Fresh Fruit Tea.png" alt="Fresh Fruit Tea" />
+      <h3>Fresh Fruit Tea</h3>
+      <p>₱55</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Milk Tea.jpg" alt="Milk Tea" />
+      <h3>Milk Tea</h3>
+      <p>₱110</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Coke 500ML.jpg" alt="Coke 500ML" />
+      <h3>Coke 500ml</h3>
+      <p>₱110</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Nature Sprint.jpg" alt="Nature Spring" />
+      <h3>Nature Spring 500ml</h3>
+      <p>₱110</p>
+      <button class="order-button">Add to Cart</button>
+    </div>
+  </section>
+
+  <!-- Script -->
+  <script>
+    // Sidebar Toggle
+    document.getElementById('menuButton').addEventListener('click', function () {
+      document.getElementById('sidebar').classList.toggle('active');
+    });
+
+    // Add to Cart functionality using localStorage
+    document.querySelectorAll('.order-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.parentElement;
+        const name = product.querySelector('h3').textContent;
+        const price = product.querySelector('p').textContent;
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(`${name} has been added to your cart.`);
+      });
+    });
+  </script>
+
+</body>
+</html>

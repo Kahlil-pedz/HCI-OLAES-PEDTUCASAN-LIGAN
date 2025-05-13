@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add to Cart</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="JJK Logo.jpg" type="image/x-icon" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+    .navbar {
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      position: relative;
+    }
+    .menu-toggle {
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+    .logo {
+      height: 40px;
+      border-radius: 50%;
+      position: absolute;
+      right: 20px;
+    }
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #333;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1;
+    }
+    .sidebar a {
+      padding: 12px 24px;
+      display: block;
+      color: white;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+    .sidebar.active {
+      left: 0;
+    }
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .item {
+      background: #fff9c4;
+      padding: 10px;
+      margin: 10px auto;
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+    }
+    .item button {
+      background: #ccc;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .total {
+      font-weight: bold;
+      margin: 20px;
+      background-color: #e1dfff;
+      padding: 10px;
+      width: 150px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .info, .payment {
+      background: #e1dfff;
+      margin: 10px auto;
+      padding: 10px;
+      width: 350px;
+      text-align: left;
+    }
+    .buttons {
+      margin: 20px;
+      text-align: center;
+    }
+    .buttons button {
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .place-order {
+      background: #c00;
+      color: white;
+      border: none;
+      padding: 10px 40px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto 40px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="order.html">Orders</a>
+    <a href="addtocart.html">Add to Cart</a>
+    <a href="login.html">Log In</a>
+    <a href="signup.html">Sign Up</a>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <button class="menu-toggle">&#9776;</button>
+    <img src="JJK Logo.jpg" alt="Logo" class="logo" />
+  </div>
+
+  <!-- Main Content -->
+  <h1>Add to Cart</h1>
+
+  <!-- Cart Items will be dynamically inserted here -->
+
+  <div class="total">Total: ₱0.00</div>
+
+  <div class="info">Delivering to: <strong>Juan Dela Cruz</strong></div>
+  <div class="info">Phone Number: <strong>09123456789</strong></div>
+  <div class="info">Address: <strong>Davao City</strong></div>
+
+  <div class="payment">
+    <div><strong>Payment Method</strong></div>
+    <button>Cash on Delivery</button>
+    <button>E-Wallet / Debit Card</button>
+  </div>
+
+  <div class="buttons">
+    <button>Delivery</button>
+    <button>Pick Up</button>
+  </div>
+
+  <button class="place-order">PLACE ORDER</button>
+
+  <!-- Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const sidebar = document.getElementById("sidebar");
+      const toggleButton = document.querySelector(".menu-toggle");
+      const cartContainer = document.querySelector("body");
+      const totalDisplay = document.querySelector(".total");
+      const placeOrderButton = document.querySelector(".place-order");
+
+      // Toggle Sidebar
+      toggleButton.addEventListener("click", function () {
+        sidebar.classList.toggle("active");
+      });
+
+      // Load Cart from localStorage
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const itemsContainer = document.querySelectorAll('.item');
+
+      const itemContainer = document.createElement('div');
+      itemContainer.classList.add('item-container');
+
+      let total = 0;
+      document.querySelectorAll('.item').forEach(item => item.remove()); // Clear dummy items
+
+      cart.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'item';
+
+        const name = document.createElement('span');
+        name.textContent = item.name;
+
+        const price = document.createElement('span');
+        price.textContent = item.price;
+
+        const cancel = document.createElement('button');
+        cancel.textContent = "Cancel";
+        cancel.addEventListener('click', () => {
+          cart.splice(index, 1);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          location.reload(); // Reload to reflect change
+        });
+
+        div.appendChild(name);
+        div.appendChild(price);
+        div.appendChild(cancel);
+        cartContainer.insertBefore(div, totalDisplay);
+
+        total += parseFloat(item.price.replace('₱', ''));
+      });
+
+      totalDisplay.textContent = `Total: ₱${total.toFixed(2)}`;
+
+      // Finalize Order
+      placeOrderButton.addEventListener('click', () => {
+        const deliverySelected = document.querySelector('.buttons .selected');
+        const paymentSelected = document.querySelector('.payment .selected');
+
+        if (!deliverySelected || !paymentSelected) {
+          alert("Please select both payment and delivery method.");
+          return;
+        }
+
+        alert("Your order has been placed. Wait for your delivery and enjoy!");
+        localStorage.removeItem('cart');
+        location.reload();
+      });
+
+      // Button selection (Delivery / Payment)
+      document.querySelectorAll('.buttons button').forEach(button => {
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.buttons button').forEach(btn => btn.classList.remove('selected'));
+          button.classList.add('selected');
+        });
+      });
+
+      document.querySelectorAll('.payment button').forEach(button => {
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.payment button').forEach(btn => btn.classList.remove('selected'));
+          button.classList.add('selected');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
