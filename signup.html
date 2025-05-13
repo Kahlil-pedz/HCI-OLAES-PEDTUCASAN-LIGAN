@@ -14,10 +14,9 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-            padding-top: 60px; /* Leave space for navbar */
+            padding-top: 60px;
         }
 
-        /* Navbar */
         .navbar {
             background-color: #333;
             color: white;
@@ -42,7 +41,6 @@
             border-radius: 50%;
         }
 
-        /* Sidebar */
         .sidebar {
             height: 100%;
             width: 0;
@@ -70,7 +68,6 @@
             background-color: #555;
         }
 
-        /* Signup Form Container */
         .signup-container {
             background-color: white;
             padding: 30px;
@@ -130,13 +127,11 @@
 </head>
 <body>
 
-<!-- Navbar -->
 <div class="navbar">
     <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <img src="JJK Logo.jpg" alt="JJK Logo" class="nav-logo-img">
 </div>
 
-<!-- Sidebar Menu -->
 <div id="sidebar" class="sidebar">
     <a href="index.html">Home</a>
     <a href="orders.html">Orders</a>
@@ -145,7 +140,6 @@
     <a href="signup.html" class="active">Sign Up</a>
 </div>
 
-<!-- Signup Form -->
 <div class="signup-container">
     <form action="signup.php" method="POST" class="signup-form">
         <h2>Sign Up</h2>
@@ -170,14 +164,12 @@
     </form>
 </div>
 
-<!-- Toggle Script -->
 <script>
     function toggleMenu() {
         const sidebar = document.getElementById("sidebar");
         sidebar.style.width = (sidebar.style.width === "250px") ? "0" : "250px";
     }
 
-    // Set max date to today for birthday
     const today = new Date().toISOString().split('T')[0];
     document.getElementById("birthday").setAttribute("max", today);
 </script>
