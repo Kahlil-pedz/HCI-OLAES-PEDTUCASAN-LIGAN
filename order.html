@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="JJK Logo.jpg" type="image/x-icon" />
+</head>
+<body>
+
+    <div class="navbar">
+        <button class="menu-toggle">&#9776;</button>
+        <img src="JJK Logo.jpg" alt="Logo" class="logo">
+        <div class="cart-indicator">Cart: <span id="cart-count">0</span></div>
+    </div>
+
+    <h1 class="orders-title">Orders</h1>
+    <section class="products">
+        <div class="product">
+            <img src="carbonara.jpg" alt="Creamy Carbonara">
+            <h3>Creamy Carbonara</h3>
+            <p>₱75</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="carbonara.jpg" alt="Creamy Carbonara">
+            <h3>Creamy Carbonara</h3>
+            <p>₱75</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="carbonara.jpg" alt="Creamy Carbonara">
+            <h3>Creamy Carbonara</h3>
+            <p>₱75</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="carbonara.jpg" alt="Creamy Carbonara">
+            <h3>Creamy Carbonara</h3>
+            <p>₱75</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+
+        <!-- Cheesy Fries -->
+        <div class="product">
+            <img src="cheesyfries.jpg" alt="Cheesy Fries">
+            <h3>Cheesy Fries</h3>
+            <p>₱85</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="cheesyfries.jpg" alt="Cheesy Fries">
+            <h3>Cheesy Fries</h3>
+            <p>₱85</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="cheesyfries.jpg" alt="Cheesy Fries">
+            <h3>Cheesy Fries</h3>
+            <p>₱85</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="cheesyfries.jpg" alt="Cheesy Fries">
+            <h3>Cheesy Fries</h3>
+            <p>₱85</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+
+        <!-- Chocolate Cake -->
+        <div class="product">
+            <img src="cake.jpg" alt="Triple Chocolate Cake">
+            <h3>Moist Triple Chocolate Cake</h3>
+            <p>₱300</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="cake.jpg" alt="Triple Chocolate Cake">
+            <h3>Moist Triple Chocolate Cake</h3>
+            <p>₱300</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="cake.jpg" alt="Triple Chocolate Cake">
+            <h3>Moist Triple Chocolate Cake</h3>
+            <p>₱300</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="cake.jpg" alt="Triple Chocolate Cake">
+            <h3>Moist Triple Chocolate Cake</h3>
+            <p>₱300</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+
+        <!-- Fresh Fruit Tea -->
+        <div class="product">
+            <img src="fruittea.jpg" alt="Fresh Fruit Tea">
+            <h3>Fresh Fruit Tea</h3>
+            <p>₱55</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="fruittea.jpg" alt="Fresh Fruit Tea">
+            <h3>Fresh Fruit Tea</h3>
+            <p>₱55</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="fruittea.jpg" alt="Fresh Fruit Tea">
+            <h3>Fresh Fruit Tea</h3>
+            <p>₱55</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="fruittea.jpg" alt="Fresh Fruit Tea">
+            <h3>Fresh Fruit Tea</h3>
+            <p>₱55</p>
+            <button class="order-button">Add to Cart</button>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Toggle menu
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.navbar')?.classList.toggle('hidden');
+        });
+
+        // Add to Cart functionality
+        let cartCount = 0;
+        const buttons = document.querySelectorAll('.order-button');
+        const cartDisplay = document.getElementById('cart-count');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                cartCount++;
+                cartDisplay.textContent = cartCount;
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add to Cart</title>
+  <link rel="icon" href="JJK Logo.jpg" type="image/x-icon" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+    }
+    header img {
+      height: 40px;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .item {
+      background: #fff9c4;
+      padding: 10px;
+      margin: 10px auto;
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+    }
+    .item button {
+      background: #ccc;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .total {
+      font-weight: bold;
+      margin: 20px;
+      background-color: #e1dfff;
+      padding: 10px;
+      width: 150px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .info, .payment {
+      background: #e1dfff;
+      margin: 10px auto;
+      padding: 10px;
+      width: 350px;
+      text-align: left;
+    }
+    .buttons {
+      margin: 20px;
+    }
+    .buttons button {
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .place-order {
+      background: #c00;
+      color: white;
+      border: none;
+      padding: 10px 40px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Logo">
+  </header>
+
+  <main>
+    <h1>Add to Cart</h1>
+
+    <div class="item">
+      <span>Creamy Carbonara</span>
+      <span>₱75</span>
+      <button>Cancel</button>
+    </div>
+    <div class="item">
+      <span>Cheesy Fries</span>
+      <span>₱85</span>
+      <button>Cancel</button>
+    </div>
+    <div class="item">
+      <span>Moist Triple Chocolate Cake</span>
+      <span>₱300</span>
+      <button>Cancel</button>
+    </div>
+    <div class="item">
+      <span>Fresh Fruit Tea</span>
+      <span>₱55</span>
+      <button>Cancel</button>
+    </div>
+
+    <div class="total">Total: ₱515.00</div>
+
+    <div class="info">Delivering to: <strong>Juan Dela Cruz</strong></div>
+    <div class="info">Phone Number: <strong>09123456789</strong></div>
+    <div class="info">Address: <strong>Davao City</strong></div>
+
+    <div class="payment">
+      <div><strong>Payment Method</strong></div>
+      <button>Cash on Delivery</button>
+      <button>E-Wallet / Debit Card</button>
+    </div>
+
+    <div class="buttons">
+      <button>Delivery</button>
+      <button>Pick Up</button>
+    </div>
+
+    <button class="place-order">PLACE ORDER</button>
+  </main>
+
+</body>
+</html>

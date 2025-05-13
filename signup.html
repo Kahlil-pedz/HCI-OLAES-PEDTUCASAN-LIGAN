@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - JJK Food Delivery</title>
+    <link rel="icon" href="JJK Logo.jpg" type="image/x-icon" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding-top: 60px; /* Leave space for navbar */
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background-color: #555;
+        }
+
+        /* Signup Form Container */
+        .signup-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: auto;
+        }
+
+        .signup-form h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background-color: #e04e53;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c43f45;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #e04e53;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <img src="JJK Logo.jpg" alt="JJK Logo" class="nav-logo-img">
+</div>
+
+<!-- Sidebar Menu -->
+<div id="sidebar" class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="orders.html">Orders</a>
+    <a href="cart.html">Add to Cart</a>
+    <a href="login.html">Log In</a>
+    <a href="signup.html" class="active">Sign Up</a>
+</div>
+
+<!-- Signup Form -->
+<div class="signup-container">
+    <form action="signup.php" method="POST" class="signup-form">
+        <h2>Sign Up</h2>
+
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
+
+        <label for="birthday">Birthday</label>
+        <input type="date" id="birthday" name="birthday" min="1900-01-01" required>
+
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" name="mobile" placeholder="09123456789" required>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Choose a username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+        <button type="submit">Sign Up</button>
+        <p>Already have an account? <a href="login.html"><strong>Log In</strong></a></p>
+    </form>
+</div>
+
+<!-- Toggle Script -->
+<script>
+    function toggleMenu() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.style.width = (sidebar.style.width === "250px") ? "0" : "250px";
+    }
+
+    // Set max date to today for birthday
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("birthday").setAttribute("max", today);
+</script>
+
+</body>
+</html>
