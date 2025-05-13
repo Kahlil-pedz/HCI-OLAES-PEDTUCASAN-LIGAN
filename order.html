@@ -112,7 +112,6 @@
 </head>
 <body>
 
-  <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
     <a href="index.html">Home</a>
     <a href="order.html">Orders</a>
@@ -121,13 +120,11 @@
     <a href="signup.html">Sign Up</a>
   </div>
 
-  <!-- Navbar -->
   <div class="navbar">
     <button class="menu-toggle" id="menuButton">&#9776;</button>
     <img src="JJK Logo.jpg" alt="Logo" class="logo" />
   </div>
 
-  <!-- Content -->
   <h1 class="orders-title">Orders</h1>
 
   <h2 class="category-title">Meals / Snacks</h2>
@@ -230,14 +227,11 @@
     </div>
   </section>
 
-  <!-- Script -->
   <script>
-    // Sidebar Toggle
     document.getElementById('menuButton').addEventListener('click', function () {
       document.getElementById('sidebar').classList.toggle('active');
     });
 
-    // Add to Cart functionality using localStorage
     document.querySelectorAll('.order-button').forEach(button => {
       button.addEventListener('click', () => {
         const product = button.parentElement;
