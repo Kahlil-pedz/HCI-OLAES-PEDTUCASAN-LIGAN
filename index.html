@@ -14,10 +14,10 @@
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
       margin: 0;
-      padding-top: 60px; /* space for fixed navbar */
+      padding-top: 60px;
     }
 
-    /* Navbar */
+
     .navbar {
       background-color: #333;
       color: white;
@@ -45,7 +45,6 @@
       border-radius: 50%;
     }
 
-    /* Sidebar */
     .sidebar {
       height: 100%;
       width: 0;
@@ -73,7 +72,6 @@
       background-color: #555;
     }
 
-    /* Products Section */
     .products {
       display: flex;
       flex-wrap: wrap;
@@ -141,13 +139,13 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+
   <div class="navbar">
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <img src="JJK Logo.jpg" alt="JJK Logo" class="nav-logo-img">
   </div>
 
-  <!-- Sidebar -->
+
   <div id="sidebar" class="sidebar">
     <a href="index.html">Home</a>
     <a href="order.html">Orders</a>
@@ -156,7 +154,6 @@
     <a href="signup.html">Sign Up</a>
   </div>
 
-  <!-- Main Content -->
   <main>
     <section id="home">
       <section class="products">
@@ -214,7 +211,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-info">
       <p><strong>Visit us:</strong><br>Beside at Jollibee Victoria<br>J.P. Laurel Ave, Bajada, Davao City</p>
@@ -225,7 +221,6 @@
     <p class="social-follow">Stay updated, stay hungry. Follow JJK on Facebook & Instagram!</p>
   </footer>
 
-  <!-- Script -->
   <script>
     function toggleMenu() {
       const sidebar = document.getElementById("sidebar");
@@ -240,7 +235,6 @@
       document.getElementById("sidebar").style.width = "0";
     }
 
-    // Default show home section
     window.onload = () => {
       navigateTo('home');
     };
