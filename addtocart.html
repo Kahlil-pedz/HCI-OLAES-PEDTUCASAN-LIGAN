@@ -118,7 +118,6 @@
 </head>
 <body>
 
-  <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
     <a href="index.html">Home</a>
     <a href="order.html">Orders</a>
@@ -127,16 +126,13 @@
     <a href="signup.html">Sign Up</a>
   </div>
 
-  <!-- Navbar -->
   <div class="navbar">
     <button class="menu-toggle">&#9776;</button>
     <img src="JJK Logo.jpg" alt="Logo" class="logo" />
   </div>
 
-  <!-- Main Content -->
   <h1>Add to Cart</h1>
 
-  <!-- Cart Items will be dynamically inserted here -->
 
   <div class="total">Total: ₱0.00</div>
 
@@ -157,7 +153,7 @@
 
   <button class="place-order">PLACE ORDER</button>
 
-  <!-- Script -->
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const sidebar = document.getElementById("sidebar");
@@ -166,12 +162,12 @@
       const totalDisplay = document.querySelector(".total");
       const placeOrderButton = document.querySelector(".place-order");
 
-      // Toggle Sidebar
+
       toggleButton.addEventListener("click", function () {
         sidebar.classList.toggle("active");
       });
 
-      // Load Cart from localStorage
+
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       const itemsContainer = document.querySelectorAll('.item');
 
@@ -209,7 +205,7 @@
 
       totalDisplay.textContent = `Total: ₱${total.toFixed(2)}`;
 
-      // Finalize Order
+
       placeOrderButton.addEventListener('click', () => {
         const deliverySelected = document.querySelector('.buttons .selected');
         const paymentSelected = document.querySelector('.payment .selected');
@@ -224,7 +220,7 @@
         location.reload();
       });
 
-      // Button selection (Delivery / Payment)
+
       document.querySelectorAll('.buttons button').forEach(button => {
         button.addEventListener('click', () => {
           document.querySelectorAll('.buttons button').forEach(btn => btn.classList.remove('selected'));
